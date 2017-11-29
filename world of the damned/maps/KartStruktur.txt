@@ -1,0 +1,22 @@
+=========================KARTSTRUKTUR I JSON======================================
+
+1) VARIABLER
+    - lengde    --> integer
+    - kollisjon --> array --> array --> 1 integer, 4(5) floats
+    - data      --> array --> array --> 1 intgeger, X*
+    - enhet     --> array --> array --> 1 integer, 4 floats
+    - enhetID   --> array --> array --> 4 floats
+
+    X*
+    id 0 = polygon     --> id, et partall med floats(x, y), farge... for eksempel 0, -1,-1, 1,-1, 1,1, -1,1, "purple" --> vil tegne en lilla firkant sentrert på 0,0
+    id 1 = enkeltbilde --> id, xpos, ypos, tilex, tiley, bredde, høyde --> 1, 3,3, 0,0, 1,1 --> vil tegne et bilde på lokasjon 3,3
+
+
+2) Kollisjonsstruktur
+    - det er tre typer kollisjon:
+        - vegger
+        - tak
+        - gulv
+
+    de er skilt fra hverandre med id-en i begynnelsen av arrayen, for eksempel: [0,0,0,0,1] er en vegg som står i 0,0 og er en enhet høyde
+    generelt for alle veggene er at de har 1 id(0,1,2) og 4 floats (ax, ay, bx, by)
